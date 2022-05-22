@@ -1,6 +1,5 @@
 .card {
     min-width: 180px;
-    max-width: 300px;
     display: flex;
     flex-direction: column;
     margin: 0px 15px;
@@ -41,7 +40,7 @@
 .card--content p{
     margin-top: 4px;
     margin-bottom: 4px;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .gray--text {

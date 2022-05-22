@@ -9,13 +9,7 @@ export default function Carousel(){
     const cardList = data.map((element) => (
             <Card 
                 key={element.id}
-                img={element.img}
-                openSpots={element.openSpots}
-                stars={element.stats.rating}     
-                reviews={element.stats.reviewCount}
-                country={element.location}
-                desc={element.title}
-                price={element.price}
+                card={element}
              />
     ));
 
