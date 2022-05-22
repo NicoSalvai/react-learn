@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #282D35; 
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1024px-React.svg.png');
+  background-repeat: no-repeat;
+  background-position: 50% 150px;
+  background-size: 300px;
+}
+
+.container {
+  margin: 0px 50px;
+  height: 100%;
+  width: inherit;
+  color: #FFFFFF;
+}

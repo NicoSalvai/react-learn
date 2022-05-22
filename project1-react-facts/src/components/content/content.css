@@ -1,0 +1,10 @@
+ul li {
+    margin: 10px 0px;
+}
+
+ul li::marker {
+    margin: 10px 0px;
+    color: #61DAFB;
+    font-size: 1.4rem;
+}
+

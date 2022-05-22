@@ -1,0 +1,48 @@
+How to set up React.
+    Import react https://reactjs.org/docs/cdn-links.html
+    Import babel https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx
+
+    ReactDOM.render(<h1>Hello, everyone!</h1>, document.getElementById("root"))
+
+
+How to set up React correctly.
+    Install Node.js
+    mkdir reactApp
+    cd reactApp
+    npm init (creacion del package.json)
+    npm install react --save
+    npm install react-dom --save
+    
+    For react to work you need 
+        Babel compiler
+        And a way to pack your JS scripts
+
+    
+
+Alternative Something called Create React App was created to make this easier
+    npx create-react-app app-name
+    cd app-name
+    npm start
+
+
+
+another libs
+    npm install react-icons
+    npm install @mui/material @emotion/react @emotion/styled
+
+
+
+
+
+
+
+
+
+git
+    echo "# learn-react-react-facts" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/NicoSalvai/learn-react-react-facts.git
+    git push -u origin main
