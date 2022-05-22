@@ -8,10 +8,7 @@ function App() {
     <div>
         <Navbar />
         <Hero />
-        <div className="carrousel">
-          <Card />
-          <Card />
-        </div>
+
     </div>
   );
 }
