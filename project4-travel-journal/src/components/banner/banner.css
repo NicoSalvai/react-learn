@@ -1,0 +1,81 @@
+.banner {
+    margin: 20px auto;
+    padding: 0px 20px;
+    min-width: 380px;
+    max-width: 800px;
+    height: 300px;
+    display: flex;
+    align-items: left;
+}
+
+.banner img {
+    max-width: 250px;
+    min-width: 150px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+    min-width: 210px;
+    padding-left: 20px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    align-content: flex-start;
+    flex-direction: column;
+}
+
+.banner-content h1{
+    margin-top: 5px;
+}
+
+.banner-content h1,
+.banner-content h4{
+    margin-bottom: 0px;
+}
+
+
+.banner-location {
+    gap: 20px;
+    align-items: center;
+    /* align-content: flex-start; */
+    /* justify-content: left; */
+    /* display: flex; */
+    flex-direction: row;
+}
+
+.banner-location span{
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-right: 15px;
+}
+
+
+.banner-location a{
+    color: gray;
+
+}
+
+a.elipsis {
+    display: inline-block;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+p.elipsis {
+    text-overflow:ellipsis;
+    overflow:hidden;
+    /* Addition lines for 2 line or multiline ellipsis*/
+    display: -webkit-box !important;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
