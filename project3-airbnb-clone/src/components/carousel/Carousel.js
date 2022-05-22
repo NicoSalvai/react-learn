@@ -1,19 +1,20 @@
 import './carousel.css';
 import Card from '../card/Card';
-import cardsData from './cards.js'
+import data from './cards.js'
 
 export default function Carousel(){
     
-    cardsData.sort((a,b) => b.reviews - a.reviews);
+    data.sort((a,b) => b.reviews - a.reviews);
 
-    const cardList = cardsData.map((element) => (
+    const cardList = data.map((element) => (
             <Card 
+                key={element.id}
                 img={element.img}
-                status={element.status}
-                stars={element.stars}     
-                reviews={element.reviews}
-                country={element.country}
-                desc={element.desc}
+                openSpots={element.openSpots}
+                stars={element.stats.rating}     
+                reviews={element.stats.reviewCount}
+                country={element.location}
+                desc={element.title}
                 price={element.price}
              />
     ));
