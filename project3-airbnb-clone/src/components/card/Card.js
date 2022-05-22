@@ -5,12 +5,12 @@ import {FaStar} from 'react-icons/fa'
 export default function Card(props){
     return (
         <div className="card">
-            <span className="card--tag">{props.status}</span>
+            { props.status && <span className="card--tag">{props.status}</span>}
             <img src={props.img} className="card--img"></img>
             <div className="card--content">
-                <p><FaStar /> {props.stars} <span className="gray--text">{props.nationality} </span></p>
+                <p><FaStar /> {props.stars} <span className="gray--text">({props.reviews}) - {props.country} </span></p>
                 <p>{props.desc}</p>
-                <p><b>{props.price}</b> / person</p>
+                <p><b>From ${props.price}</b> / person</p>
             </div>
         </div>
     )
