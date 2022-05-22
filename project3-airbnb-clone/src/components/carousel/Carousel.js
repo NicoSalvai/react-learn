@@ -10,6 +10,7 @@ export default function Carousel(){
             <Card 
                 key={element.id}
                 card={element}
+                // {...element}
              />
     ));
 

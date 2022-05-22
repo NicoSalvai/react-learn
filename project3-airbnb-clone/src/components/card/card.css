@@ -1,5 +1,6 @@
 .card {
     min-width: 180px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     margin: 0px 15px;
@@ -7,8 +8,8 @@
 }
 
 .card--img {
-    width: 100%;
-    height: 100%;
+    width: 180px;
+    height: 246.344px;
     align-self: left;
     
     border-radius: 7%;
