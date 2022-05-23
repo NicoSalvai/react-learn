@@ -20,10 +20,17 @@
     background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
     color: white;
     
-    
     font-size: 20px;
     font-weight: bold;
 
+    border-radius: 7px;
+    border-style: none;
+}
+
+.meme-form img {
+    width: 50%;
+    margin: 0px auto;
+    grid-column: 1/-1;
     border-radius: 7px;
     border-style: none;
 }
