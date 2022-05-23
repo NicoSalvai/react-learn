@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.header h3{ 
+    position: absolute;
+    right: 20px;
+}
+
+
+.header img {
+    height: 45px;
+    margin: 10px 0px;
+    padding-left: 20px;
+    padding-right: 10px;
+}

@@ -1,0 +1,29 @@
+.meme-form {
+    display: grid;
+    margin: 50px auto;
+    width: 80%;
+    grid-template: 40px 60px / 1fr 1fr;
+    row-gap: 20px;
+}
+
+
+.meme-form input {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.meme-form button {
+    width: 90%;
+    margin: 0px auto;
+    grid-column: 1/-1;
+    grid-row: 2 2;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    
+    
+    font-size: 20px;
+    font-weight: bold;
+
+    border-radius: 7px;
+    border-style: none;
+}
