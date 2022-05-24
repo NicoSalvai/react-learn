@@ -1,6 +1,7 @@
 import './memeform.css'
 import memeService from '../memes/memes'
 import React from 'react';
+import MemeImage from '../MemeImage/memeimage';
 
 export default function MemeForm() {
     const [meme, setMeme] = React.useState({
@@ -22,7 +23,7 @@ export default function MemeForm() {
             <input type="text" id="first-text"/>
             <input type="text" id="second-text"/>
             <button onClick={getNewMemeImage} className="meme-form-button">Get a new meme image</button>
-            <img src={meme.url}/>
+            <MemeImage {...meme}/>
         </div>
     )
 }

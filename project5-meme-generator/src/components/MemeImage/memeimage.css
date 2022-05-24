@@ -1,0 +1,12 @@
+.meme--image {
+    grid-column: 1/-1;
+    border-radius: 7px;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.meme--image img{
+    width: 50%;
+    margin: 0px auto;
+}
