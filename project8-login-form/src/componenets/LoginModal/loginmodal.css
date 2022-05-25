@@ -1,0 +1,30 @@
+form {
+    width: 300px;
+    margin: 30px auto; 
+    padding: 25px 10px;
+
+    background-color: white;  
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+
+    display:flex;
+    flex-wrap: wrap;
+    gap:15px;
+    justify-content: center;
+}
+
+
+.subscribe-group {
+    width: 80%;
+    text-align: left;
+}
+
+form button {
+    background-color: #639;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    padding: 7px 25px;
+}
