@@ -7,7 +7,6 @@ export default function LoginModal(){
     const [form, setForm] = React.useState({
         email: {
             value: "",
-            valid: true,
             error: [],
             validate: [((input, prev) => input.length !== 0 ? "" : "Email should not be empty")],
             type: "email",
@@ -16,7 +15,6 @@ export default function LoginModal(){
         },
         username: {
             value: "",
-            valid: true,
             error: [],
             validate: [((input, prev) => input.length !== 0 ? "" : "Username should not be empty")],
             type: "text",
@@ -25,7 +23,6 @@ export default function LoginModal(){
         },
         password: {
             value: "",
-            valid: true,
             error: [],
             validate: [((input, prev) => input.length !== 0 ? "" : "Password should not be empty")],
             type: "password",
@@ -34,7 +31,6 @@ export default function LoginModal(){
         },  
         password_repeat: {
             value: "",
-            valid: true,
             error: [],
             validate: [((input, prev) => (input.length !== 0 ? "" : "Password should not be empty")), 
                 ((input, prev) => (input === prev.password.value ? "" : "Passwords should match"))],
@@ -44,9 +40,8 @@ export default function LoginModal(){
         },
         subscribe: {
             value: false,
-            valid: true,
             error: [],
-            validate: [((input, prev) => true)],
+            validate: [((input, prev) => "")],
             type: "checkbox",
             name: "subscribe",
             placeholder: "subscribe",
@@ -58,14 +53,12 @@ export default function LoginModal(){
         const actualValue = type==="checkbox"?checked:value
         
         setForm((prev) => {
-            const errors = prev[name].validate.map(validator => validator(actualValue, prev)).filter(validator => validator !== "")
             return {
                 ...prev,
                 [name]: {
                     ...prev[name],
                     value: actualValue,
-                    valid: (errors.length === 0),
-                    error: errors
+                    error: prev[name].validate.map(validator => validator(actualValue, prev)).filter(validator => validator !== "")
                 }
             }
         })
@@ -76,16 +69,14 @@ export default function LoginModal(){
         
         setForm(prev => {
             Object.keys(prev).forEach( key => {
-                const errors = prev[key].error = prev[key].validate.map(validator => validator(prev[key].value, prev)).filter(validator => validator !== "")
-                prev[key].valid = (errors.length === 0)
-                prev[key].error = errors
+                prev[key].error = prev[key].error = prev[key].validate.map(validator => validator(prev[key].value, prev)).filter(validator => validator !== "")
             })
             return {
                 ...prev,
             };
         })
 
-        if(Object.keys(form).every(key => form[key].valid)){
+        if(Object.keys(form).every(key => form[key].error.length === 0)){
             console.log("submitted")
             console.log(form)
         }

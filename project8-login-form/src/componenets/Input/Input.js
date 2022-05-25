@@ -1,7 +1,6 @@
 import './input.css'
 
 export default function Input(props) {
-
     const errors = props.error.map(error => <p className='error' key={error}>*{error}</p>)
     
     return (
@@ -12,7 +11,7 @@ export default function Input(props) {
             id={props.name}
             placeholder={props.placeholder}
             value={props.value}
-            className={props.valid?"custom-input":"custom-input invalid"}
+            className={(props.error.length === 0) ?"custom-input":"custom-input invalid"}
             onChange={props.changeHandler}
         />
         {errors}
