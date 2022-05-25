@@ -18,10 +18,32 @@ export default function MemeForm() {
         }))
     }
 
+    function textChange(event){
+        const {name, value} = event.target;
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
+    }
+
+
+
     return (
         <div className="meme-form">
-            <input type="text" id="first-text"/>
-            <input type="text" id="second-text"/>
+            <input 
+                type="text" 
+                id="topText"
+                name="topText"
+                value={meme.topText}
+                onChange={textChange}
+            />
+            <input 
+                type="text" 
+                id="bottomText"    
+                name="bottomText"    
+                value={meme.bottomText}
+                onChange={textChange}
+            />
             <button onClick={getNewMemeImage} className="meme-form-button">Get a new meme image</button>
             <MemeImage {...meme}/>
         </div>
