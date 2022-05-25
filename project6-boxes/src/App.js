@@ -1,12 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import boxes from "./data/boxes"
+import Box from "./components/box/Box"
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
+export default function App() {
+  const [squares, setSquares] = React.useState(boxes)
+  
+  function toggle(id) {
+      setSquares(prevSquares => prevSquares.map(element => (element.id === id) ? ({...element, on:!element.on}) : element))   
+  }
+  
+  const squareElements = squares.map(square => (
+      <Box 
+          key={square.id} 
+          on={square.on} 
+          toggle={() => toggle(square.id)}
+      />
+  ))
 
-    </div>
-  );
+    return (
+        <div className="App">
+            {squareElements}
+        </div>
+    )
 }
-
-export default App;

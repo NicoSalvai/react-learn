@@ -1,0 +1,13 @@
+.box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 5px;
+    background-color: transparent;
+  }
+
+.on {
+    background-color: #222222; 
+}
