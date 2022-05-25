@@ -8,7 +8,8 @@ export default function LoginModal(){
         email: {
             value: "",
             valid: true,
-            validate: ((input, prev) => input.length != 0),
+            error: [],
+            validate: [((input, prev) => input.length !== 0 ? "" : "Email should not be empty")],
             type: "email",
             name: "email",
             placeholder: "Correo electronico",
@@ -16,7 +17,8 @@ export default function LoginModal(){
         username: {
             value: "",
             valid: true,
-            validate: ((input, prev) => input.length != 0),
+            error: [],
+            validate: [((input, prev) => input.length !== 0 ? "" : "Username should not be empty")],
             type: "text",
             name: "username",
             placeholder: "Username",
@@ -24,7 +26,8 @@ export default function LoginModal(){
         password: {
             value: "",
             valid: true,
-            validate: ((input, prev) => input.length != 0),
+            error: [],
+            validate: [((input, prev) => input.length !== 0 ? "" : "Password should not be empty")],
             type: "password",
             name: "password",
             placeholder: "Password",
@@ -32,7 +35,9 @@ export default function LoginModal(){
         password_repeat: {
             value: "",
             valid: true,
-            validate: ((input, prev) => (input.length != 0 && input === prev.password.value)),
+            error: [],
+            validate: [((input, prev) => (input.length !== 0 ? "" : "Password should not be empty")), 
+                ((input, prev) => (input === prev.password.value ? "" : "Passwords should match"))],
             type: "password",
             name: "password_repeat",
             placeholder: "Confirm password",
@@ -40,7 +45,8 @@ export default function LoginModal(){
         subscribe: {
             value: false,
             valid: true,
-            validate: ((input, prev) => true),
+            error: [],
+            validate: [((input, prev) => true)],
             type: "checkbox",
             name: "subscribe",
             placeholder: "subscribe",
@@ -50,13 +56,16 @@ export default function LoginModal(){
     function changeHandler(event){
         const {value, name, checked, type} = event.target;
         const actualValue = type==="checkbox"?checked:value
+        
         setForm((prev) => {
+            const errors = prev[name].validate.map(validator => validator(actualValue, prev)).filter(validator => validator !== "")
             return {
                 ...prev,
                 [name]: {
                     ...prev[name],
                     value: actualValue,
-                    valid: prev[name].validate(actualValue, prev)
+                    valid: (errors.length === 0),
+                    error: errors
                 }
             }
         })
@@ -67,7 +76,9 @@ export default function LoginModal(){
         
         setForm(prev => {
             Object.keys(prev).forEach( key => {
-                prev[key].valid = prev[key].validate(prev[key].value, prev)
+                const errors = prev[key].error = prev[key].validate.map(validator => validator(prev[key].value, prev)).filter(validator => validator !== "")
+                prev[key].valid = (errors.length === 0)
+                prev[key].error = errors
             })
             return {
                 ...prev,

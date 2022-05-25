@@ -1,8 +1,11 @@
 import './input.css'
 
 export default function Input(props) {
+
+    const errors = props.error.map(error => <p className='error' key={error}>*{error}</p>)
     
     return (
+        <div className='custom-input-container'>
         <input
             type={props.type}
             name={props.name}
@@ -12,5 +15,7 @@ export default function Input(props) {
             className={props.valid?"custom-input":"custom-input invalid"}
             onChange={props.changeHandler}
         />
+        {errors}
+        </div>
     )
 }
