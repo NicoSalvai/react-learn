@@ -1,5 +1,4 @@
 import './memeform.css'
-import memeService from '../memes/memes'
 import React from 'react';
 import MemeImage from '../MemeImage/memeimage';
 
@@ -10,11 +9,13 @@ export default function MemeForm() {
         url: ""
     })
 
+    const [allMemes, setAllMemes] = React.useState([])
+
     function getNewMemeImage(){
-        let randomMemeIndex = parseInt(memeService.data.memes.length * Math.random());
+        let randomMemeIndex = parseInt(allMemes.memes.length * Math.random());
         setMeme(prevMeme => ({
             ...prevMeme,
-            url: memeService.data.memes[randomMemeIndex].url
+            url: allMemes.memes[randomMemeIndex].url
         }))
     }
 
@@ -25,6 +26,12 @@ export default function MemeForm() {
             [name]: value
         }))
     }
+
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+            .then(response => response.json())
+            .then(data => setAllMemes(data.data))
+    }, [])
 
 
 
